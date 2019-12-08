@@ -1,7 +1,6 @@
 
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<!-- saved from url=(0074)http://d15544972.c101.consulticltda.com/images/documentos/1110Calculo.html -->
+<!DOCTYPE html>
 
 <HTML><HEAD><TITLE>Cálculo de Créditos</TITLE>
 	<meta charset="utf-8">
