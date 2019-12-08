@@ -6,13 +6,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
-	<meta name="author" content="JairoG">
+	<meta name="author" content="JairoG, RonmelL">
 
 
-	<title>Smulador de Credito</title>
+	<title>Simulador de Credito</title>
 
 	<!-- Additional CSS Files -->
 	<link rel="stylesheet" type="text/css" href="Frameworks/Bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Frameworks/Semantic/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="Recursos/Estilos/font-awesome.css">
 	<link rel="stylesheet" href="Recursos/Estilos/style.css">
 
@@ -94,7 +95,7 @@
 
 						<!-- ***** Features Small Item Start ***** -->
 						<div class="col-lg-4 col-md-6 col-sm-6 col-8" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
-							<a href="#"><div class="features-small-item">
+							<a href="Credito.php"><div class="features-small-item">
 								<div class="icon">
 									<i><img src="Recursos/Imagenes/Prestamo.png" alt=""></i>
 								</div>
@@ -122,7 +123,7 @@
 			¿
 			<div class="row">
 				<div class="col-lg-12">
-					<p class="copyright">&copy; 2019 SImuladorDeCredito</p>
+					<p class="copyright">&copy; 2019 SimuladorDeCredito</p>
 				</div>
 			</div>
 		</div>
