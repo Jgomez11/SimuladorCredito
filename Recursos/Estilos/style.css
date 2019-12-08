@@ -11,9 +11,10 @@ Table of contents
 01. font & reset css
 02. reset
 03. header
-04. welcome
-05. features
-06. footer
+04. Body
+05. welcome
+06. features
+07. footer
 
 --------------------------------------------- */
 /* 
@@ -75,7 +76,7 @@ header, nav, section, article, aside, footer, hgroup {
 html, body {
   font-family: "Raleway", sans-serif;
   font-weight: 400;
-  background-color: #fff;
+  background-color: #f3f2f2;
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -365,9 +366,55 @@ header
 
 /* 
 ---------------------------------------------
-welcome
+Body
 --------------------------------------------- 
 */
+
+
+.body {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f2f2;
+
+}
+
+.body .header-textb {
+  position: absolute;
+  top: 10%;
+  transform: translateY(0%);
+  text-align: center;
+  width: 80%;
+}
+
+.body .header-textb h1 {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 54px;
+  letter-spacing: 1.4px;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.body .header-textb p {
+  font-weight: 400;
+  font-size: 15px;
+  color: #fff;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+
+/* 
+---------------------------------------------
+Welcome
+--------------------------------------------- 
+*/
+
 .welcome-area {
   overflow: hidden;
   position: relative;
@@ -379,6 +426,16 @@ welcome
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; 
+  height: 65vh;
+}
+
+.body {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f2f2;
   height: 68vh;
 }
 
@@ -487,8 +544,8 @@ features
 
 .home-feature {
   padding-bottom: 0px;
-  padding-top: 30px;
-  margin-top: -220px;
+  padding-top: 0px;
+  margin-top: -240px;
   z-index: 9;
 }
 
@@ -507,7 +564,7 @@ footer
 --------------------------------------------- 
 */
 footer {
-  padding-top: 30px;
+  padding-top: 0px;
 }
 
 
@@ -515,7 +572,7 @@ footer .copyright {
   text-align: center;
   border-top: 1px solid rgba(250,250,250,0.2);
   margin-top: 30px;
-  padding-top: 30px;
+  padding-top: 10px;
   padding-bottom: 30px;
   font-weight: 400;
   font-size: 12px;

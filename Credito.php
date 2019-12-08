@@ -49,20 +49,9 @@
 	<!-- ***** Header Area End ***** -->
 
 	<!-- ***** Welcome Area Start ***** -->
-	<div class="welcome-area" id="welcome">
-
+	<div class="body" id="body">
 		<!-- ***** Header Text Start ***** -->
-		<div class="header-text">
-			<div class="container">
-				<div class="row">
-					<div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
-						
-						<p><strong>  ¿Que Desea Simular?</strong></p>
-						
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="header-textb"> </div>
 		<!-- ***** Header Text End ***** -->
 	</div>
 	
@@ -73,101 +62,146 @@
 			<div class="row">
 				<div class="col-lg-12">
 
-					<div class="row">
+					<form>
+						<div class="row">
+							<!-- *** Inicio forms *** -->
+							<div class="col-md-6" >
+								<div class="form-group row">
+									<label for="vp" class="col-sm-6 col-form-label">Valor del préstamo:</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="vp">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="tae" class="col-sm-6 col-form-label">Tasa Anual Efectiva:</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="tae">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="nc" class="col-sm-6 col-form-label">Número de cuotas:</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="nc">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="p" class="col-sm-6 col-form-label">Períodos:</label>
+									<div class="col-sm-6" >
+										<select class="form-control">
+											<option>Default select</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="pg" class="col-sm-6 col-form-label">Períodos de Gracia:</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" id="pg">
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="tc" class="col-sm-6 col-form-label">Tipo de Crédito:</label>
+									<div class="col-sm-6">
+										<select class="form-control">
+											<option>Default select</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+
+							<!-- ***** Features Small Item Start ***** -->
+							<div class="col-md-1">
+							</DIV>
+							<div class="col-md-5">
+								<center>	
+
+									<a href="Credito.php"><div class="features-small-item">
+										<div class="icon">
+											<i><img src="Recursos/Imagenes/Prestamo.png" alt=""></i>
+										</div>
+										<h5 class="features-title">Tipo de Credito</h5>
+										<p> Elige el tipo de credito adecuado 
+											para saber mas de los tipos de creditos existentes da click aqui. <br> <br> <br>  </p>
+										</div>
+									</a>
+
+								</center>
+							</div>
+							<!-- ***** Features Small Item End ***** -->
+
+						</div> <!--FIN DE FILA-->
+
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+
+								<center>
+									<!-- *** boton1 *** -->
+									<div class="form-group">
+										<div class="col-sm-10">
+											<button type="button" class="btn btn-outline-success">+ Préstamos</button>
+										</div>
+									</div>
+								</center>
+							</DIV>
+						</div>
+
 						
-						<!-- *** Inicio forms *** -->
-						<form>
+						<div class="row">
+							<div class="col-md-12">
+								
+								<center>
+									<!-- *** boton2 *** -->
+									<div class="form-group">
+										<div class="col-sm-10">
+											<button type="submit" class="btn btn-success">Cálcular</button>
+										</div>
+									</div>
+								</center>
+							</DIV>
 
-						  <div class="form-group row">
-						    <label for="vp" class="col-sm-6 col-form-label">Valor del préstamo:</label>
-						    <div class="col-sm-6">
-						      <input type="text" class="form-control" id="vp">
-						    </div>
-						  </div>
+						</div>
 
-						  <div class="form-group row">
-						    <label for="tae" class="col-sm-6 col-form-label">Tasa Anual Efectiva:</label>
-						    <div class="col-sm-6">
-						      <input type="text" class="form-control" id="tae">
-						    </div>
-						  </div>
 
-						  <div class="form-group row">
-						    <label for="nc" class="col-sm-6 col-form-label">Número de cuotas:</label>
-						    <div class="col-sm-6">
-						      <input type="text" class="form-control" id="nc">
-						    </div>
-						  </div>
 
-						  <div class="form-group row">
-						    <label for="p" class="col-sm-6 col-form-label">Períodos:</label>
-						    <div class="col-sm-6">
-						      <select class="form-control">
-							    <option>Default select</option>
-							  </select>
-						    </div>
-						  </div>
-
-						  <div class="form-group row">
-						    <label for="pg" class="col-sm-6 col-form-label">Períodos de Gracia:</label>
-						    <div class="col-sm-6">
-						      <input type="text" class="form-control" id="pg">
-						    </div>
-						  </div>
-
-						  <div class="form-group row">
-						    <label for="tc" class="col-sm-6 col-form-label">Tipo de Crédito:</label>
-						    <div class="col-sm-6">
-						      <select class="form-control">
-							    <option>Default select</option>
-							  </select>
-						    </div>
-						  </div>
-						  <!-- *** boton1 *** -->
-						  <div class="form-group row">
-						    <div class="col-sm-10">
-						      <button type="button" class="btn btn-outline-primary">Agregar Otro Préstamo</button>
-						    </div>
-						  </div>
-						  <!-- *** boton2 *** -->
-						  <div class="form-group row">
-						    <div class="col-sm-10">
-						      <button type="submit" class="btn btn-primary">Cálcular</button>
-						    </div>
-						  </div>
-
-						</form>
-						<!-- *** final forms *** -->
-
-					</div>
+					</form>
+					<!-- *** final forms *** -->
 
 				</div>
+
+
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
 
-	<!-- ***** Footer Start ***** -->
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<p class="copyright">&copy; 2019 SimuladorDeCredito</p>
-				</div>
+<!-- ***** Footer Start ***** -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<p class="copyright">&copy; 2019 SimuladorDeCredito</p>
 			</div>
 		</div>
-	</footer>
-	<!-- ***** Footer End ***** -->
+	</div>
+</footer>
+<!-- ***** Footer End ***** -->
 
-	<!-- jQuery -->
-	<script src="Recursos/Scripts/js/jquery-2.1.0.min.js"></script>
-	<!-- Bootstrap -->
-	<script src="Recursos/Scripts/js/popper.js"></script>
-	<script src="Recursos/Scripts/js/bootstrap.min.js"></script>
-	<!-- Plugins -->
-	<script src="Recursos/Scripts/js/scrollreveal.min.js"></script>
-	<!-- Global Init -->
-	<script src="Recursos/Scripts/js/custom.js"></script>
+<!-- jQuery -->
+<script src="Recursos/Scripts/js/jquery-2.1.0.min.js"></script>
+<!-- Bootstrap -->
+<script src="Recursos/Scripts/js/popper.js"></script>
+<script src="Recursos/Scripts/js/bootstrap.min.js"></script>
+<!-- Plugins -->
+<script src="Recursos/Scripts/js/scrollreveal.min.js"></script>
+<!-- Global Init -->
+<script src="Recursos/Scripts/js/custom.js"></script>
 
 </body>
 </html>
