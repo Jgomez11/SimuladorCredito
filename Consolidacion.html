@@ -1,0 +1,177 @@
+<!Doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+
+	<script src="Recursos/Scripts/js/jquery-2.1.0.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="Frameworks/Bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="Frameworks/Semantic/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="Recursos/Estilos/font-awesome.css">
+	<link rel="stylesheet" href="Recursos/Estilos/style.css">
+
+
+	<style>
+		#content{
+			position: absolute;
+			min-height: 50%;
+			width: 80%;
+			top: 20%;
+			left: 5%;
+		}
+
+		.selected{
+			cursor: pointer;
+		}
+		.selected:hover{
+			background-color: rgba(91,228,146,0.6);
+			color: white;
+		}
+		.seleccionada{
+			background-color: rgba(66,196,157,0.7);
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	
+	<header class="header-area header-sticky">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="Index.html" class="logo">
+							<img src="Recursos/Imagenes/logo.png" alt="PréstamosCrediticios" width="270px;" />
+						</a>
+						<!-- ***** Logo End ***** -->
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="#">Soporte </a></li>
+						</ul>
+
+						<!-- ***** Menu End ***** -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+	
+	
+	<div class="container" style="padding-top: 10em;">
+
+		<div class="col-lg-12">
+
+			<form>
+				<div class="row">
+					<!-- *** Inicio forms *** -->
+					<div class="col-md-6" style="margin-left: 2em;">
+						<div class="form-group row">
+							<label for="vp" class="col-sm-6 col-form-label">Salario Con Deducciones:</label>
+							<div class="col-sm-6">
+								<input type="text" class="form-control" id="vp" placeholder="Ejemplo: 8500.00" autofocus>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="col-md-1" >
+
+						<!-- *** boton3 *** -->
+						<a href="ConsolidacionResultado.html"> <div class="form-group">
+							<div class="col-sm-5">
+								<button id="btnCalcularDetallado" type="button" class="btn btn-success" >Calcular</button>
+							</div>
+						</div> </a>
+
+					</div>
+				</div>
+				<!--FIN DE FILA-->
+				<br>
+			</form>
+			<!-- *** final forms *** -->
+			<div class="row">
+				<center>	
+					<div id="content" style="padding-top: 5em; margin-left: 4em;" >
+						<table id="tabla" class="table" style=>
+							<thead class="thead-dark" style="color: white; background-color:#343a40;">
+								<tr>
+									<td>Nº</td>
+									<td>Valor Cuotas</td>
+									<td>Cuotas Pendientes</td>
+									<td>Mora</td>
+									<td>Monto Total</td>
+								</tr>
+							</thead>
+						</table>
+						<button id="bt_add" class="btn btn-outline-success">Agregar</button> 
+						<button id="bt_del" class="btn btn-outline-success" style=" margin-left:4px;">Eliminar</button>
+						<button id="bt_delall" class="btn btn-outline-success" style=" margin-left:4px;">Eliminar todo</button>
+
+					</div>
+				</center>
+
+
+
+			</div>
+
+		</div>
+	</div>
+	
+	
+
+
+	
+
+	<!-- ***** Footer Start ***** -->
+	<footer style="padding-top: 27em;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="copyright">&copy; 2019 SimuladorDeCredito</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ***** Footer End ***** -->
+
+
+
+
+
+
+
+
+</body>
+
+<script src="Recursos/Scripts/AgregarEliminarFilas.js"></script>
+
+<!-- Bootstrap -->
+<script src="Recursos/Scripts/js/popper.js"></script>
+<script src="Recursos/Scripts/js/bootstrap.min.js"></script>
+<!-- Plugins -->
+<script src="Recursos/Scripts/js/scrollreveal.min.js"></script>
+<!-- Global Init -->
+<script src="Recursos/Scripts/js/custom.js"></script>
+<script src="Recursos/Scripts/GraficosChart/Chart.js"></script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
