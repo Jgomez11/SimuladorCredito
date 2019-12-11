@@ -61,9 +61,9 @@
 								<!-- *** Inicio forms *** -->
 								<div class="col-md-6">
 									<div class="form-group row">
-										<label for="vp" class="col-sm-6 col-form-label">Valor del préstamo:</label>
+										<label for="valorPrestamo" class="col-sm-6 col-form-label">Valor del préstamo:</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="vp">
+											<input type="text" class="form-control" id="valorPrestamo">
 										</div>
 									</div>
 
@@ -75,48 +75,54 @@
 									</div>
 
 									<div class="form-group row">
-										<label for="nc" class="col-sm-6 col-form-label">Número de cuotas:</label>
+										<label for="numeroCuotas" class="col-sm-6 col-form-label">Número de cuotas:</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="nc">
+											<input type="text" class="form-control" id="numeroCuotas">
 										</div>
 									</div>
 
 									<div class="form-group row">
-										<label for="p" class="col-sm-6 col-form-label">Períodos:</label>
+										<label for="periodo" class="col-sm-6 col-form-label">Períodos:</label>
 										<div class="col-sm-6">
 											<select class="form-control" id="periodo">
 												<option value="12">Mensual</option>
 												<option value="4">Trimestral</option>
 												<option value="2">Semestral</option>
+												<option value="1">Anual</option>
 											</select>
 										</div>
 									</div>
 
 									<div class="form-group row">
-										<label for="pg" class="col-sm-6 col-form-label">Períodos de Gracia:</label>
+										<label for="periodosGracia" class="col-sm-6 col-form-label">Períodos de Gracia:</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="pg">
+											<input type="text" class="form-control" id="periodosGracia">
 										</div>
 									</div>
 
 									<div class="form-group row">
-										<label for="tc" class="col-sm-6 col-form-label">Tipo de Crédito:</label>
+										<label for="tipoCredito" class="col-sm-6 col-form-label">Tipo de Crédito:</label>
 										<div class="col-sm-6">
-											<select class="form-control">
-												<option>Francés</option>
+											<select class="form-control" id="tipoCredito">
+												<option value="frances">Francés</option>
+												<option value="aleman">Aleman</option>
+												<option value="americano">Americano</option>
+												<option value="banpais">Banpais</option>
 											</select>
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="nc" class="col-sm-6 col-form-label disabled">Cuota:</label>
+										<label class="col-sm-6 col-form-label disabled">Cuota:</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="cuota" placeholder="Resultado" disabled>
+											<input type="text" class="form-control" id="cuota" placeholder="Resultado"
+												disabled>
 										</div>
 									</div>
-									<div class="form-group row" >
-										<label for="nc" class="col-sm-6 col-form-label disabled">Total a pagar:</label>
+									<div class="form-group row">
+										<label class="col-sm-6 col-form-label disabled">Total a pagar:</label>
 										<div class="col-sm-6">
-											<input type="text" class="form-control" id="total" placeholder="Resultado" disabled>
+											<input type="text" class="form-control" id="total" placeholder="Resultado"
+												disabled>
 										</div>
 									</div>
 								</div>
@@ -134,100 +140,114 @@
 													<i><img src="Recursos/Imagenes/Prestamo.png" alt=""></i>
 												</div>
 												<h5 class="features-title">Tipo de Crédito</h5>
-												<p style="text-align: justify;"> Elige el tipo de crédito adecuado, según el tipo de interés que aplica la institución financiera correspondiente.
-													para saber mas de los tipos de créditos existentes da clic Aquí  <br>
+												<p style="text-align: justify;"> Elige el tipo de crédito adecuado,
+													según el tipo de interés que aplica la institución financiera
+													correspondiente.
+													para saber mas de los tipos de créditos existentes da clic Aquí <br>
 													<br> <br> </p>
-												</div>
-											</a>
+											</div>
+										</a>
 
-										</center>
-									</div>
-									<!-- ***** Features Small Item End ***** -->
-
+									</center>
 								</div>
-								<!--FIN DE FILA-->
+								<!-- ***** Features Small Item End ***** -->
 
-								<br>
-								<div class="row">
-									<div class="col-md-12">
+							</div>
+							<!--FIN DE FILA-->
 
-										<center>
-											<!-- *** boton1 *** -->
+							<br>
+							<div class="row">
+								<div class="col-md-12">
+
+									<center>
+										<!-- *** boton1 *** -->
+										<div class="form-group">
+											<div class="col-sm-10">
+												<button type="button" class="btn btn-outline-success">+
+													Préstamos</button>
+											</div>
+										</div>
+									</center>
+								</DIV>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-12">
+
+									<center>
+										<!-- *** boton2 *** -->
+										<div class="form-group">
+											<div class="col-sm-10">
+												<button id="btnCalcular" type="button" class="btn btn-success">Calculo
+												</button>
+											</div>
+										</div>
+									</center>
+								</DIV>
+
+							</div>
+
+							<!-- <div class="row">
+								<div class="col-md-12"> -->
+
+									<!-- <center> -->
+										<!-- *** boton3 *** -->
+										<!-- <a href="CreditoResultado.html">
 											<div class="form-group">
 												<div class="col-sm-10">
-													<button type="button" class="btn btn-outline-success">+ Préstamos</button>
+													<button id="btnCalcularDetallado" type="button"
+														class="btn btn-success">Calculo Detallado</button>
 												</div>
 											</div>
-										</center>
-									</DIV>
+										</a> -->
+									<!-- </center> -->
+								<!-- </DIV> -->
+
+							<!-- </div> -->
+							
+							<div class="row">
+								<div class="col-md-6">
+									<center>
+										<div id="tabla"></div>
+									</center>
 								</div>
-
-
-								<div class="row">
-									<div class="col-md-12">
-
-										<center>
-											<!-- *** boton2 *** -->
-											<div class="form-group">
-												<div class="col-sm-10">
-													<button id="btnCalcular" type="button" class="btn btn-success">Calculo Resumido</button>
-												</div>
-											</div>
-										</center>
-									</DIV>
-
-								</div>
-
-								<div class="row">
-									<div class="col-md-12">
-
-										<center>
-											<!-- *** boton3 *** -->
-											<a href="CreditoResultado.html"> <div class="form-group">
-												<div class="col-sm-10">
-													<button id="btnCalcularDetallado" type="button" class="btn btn-success">Calculo Detallado</button>
-												</div>
-											</div> </a>
-										</center>
-									</DIV>
-
-								</div>
+							</div>
 
 
 
-
-							</form>
-							<!-- *** final forms *** -->
-
-						</div>
-
+						</form>
+						<!-- *** final forms *** -->
 
 					</div>
+
+
 				</div>
 			</div>
-		</section>
+	</div>
+	</section>
 
 
-		<!-- ***** Footer Start ***** -->
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<p class="copyright">&copy; 2019 SimuladorDeCredito</p>
-					</div>
+	<!-- ***** Footer Start ***** -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="copyright">&copy; 2019 SimuladorDeCredito</p>
 				</div>
 			</div>
-		</footer>
-		<!-- ***** Footer End ***** -->
+		</div>
+	</footer>
+	<!-- ***** Footer End ***** -->
 
-		<!-- Bootstrap -->
-		<script src="Recursos/Scripts/js/popper.js"></script>
-		<script src="Recursos/Scripts/js/bootstrap.min.js"></script>
-		<!-- Plugins -->
-		<script src="Recursos/Scripts/js/scrollreveal.min.js"></script>
-		<!-- Global Init -->
-		<script src="Recursos/Scripts/js/custom.js"></script>
+	<!-- Bootstrap -->
+	<script src="Recursos/Scripts/js/popper.js"></script>
+	<script src="Recursos/Scripts/js/bootstrap.min.js"></script>
+	<!-- Plugins -->
+	<script src="Recursos/Scripts/js/scrollreveal.min.js"></script>
+	<!-- Global Init -->
+	<script src="Recursos/Scripts/js/custom.js"></script>
 
-	</body>
+</body>
 
-	</html>
+</html>
