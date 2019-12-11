@@ -61,7 +61,8 @@
 								<!-- *** Inicio forms *** -->
 								<div class="col-md-6">
 									<div class="form-group row">
-										<label for="valorPrestamo" class="col-sm-6 col-form-label">Valor del préstamo:</label>
+										<label for="valorPrestamo" class="col-sm-6 col-form-label">Valor del
+											préstamo:</label>
 										<div class="col-sm-6">
 											<input type="text" class="form-control" id="valorPrestamo">
 										</div>
@@ -75,7 +76,8 @@
 									</div>
 
 									<div class="form-group row">
-										<label for="numeroCuotas" class="col-sm-6 col-form-label">Número de cuotas:</label>
+										<label for="numeroCuotas" class="col-sm-6 col-form-label">Número de
+											cuotas:</label>
 										<div class="col-sm-6">
 											<input type="text" class="form-control" id="numeroCuotas">
 										</div>
@@ -94,14 +96,16 @@
 									</div>
 
 									<div class="form-group row">
-										<label for="periodosGracia" class="col-sm-6 col-form-label">Períodos de Gracia:</label>
+										<label for="periodosGracia" class="col-sm-6 col-form-label">Períodos de
+											Gracia:</label>
 										<div class="col-sm-6">
 											<input type="text" class="form-control" id="periodosGracia">
 										</div>
 									</div>
 
 									<div class="form-group row">
-										<label for="tipoCredito" class="col-sm-6 col-form-label">Tipo de Crédito:</label>
+										<label for="tipoCredito" class="col-sm-6 col-form-label">Tipo de
+											Crédito:</label>
 										<div class="col-sm-6">
 											<select class="form-control" id="tipoCredito">
 												<option value="frances">Francés</option>
@@ -191,9 +195,9 @@
 							<!-- <div class="row">
 								<div class="col-md-12"> -->
 
-									<!-- <center> -->
-										<!-- *** boton3 *** -->
-										<!-- <a href="CreditoResultado.html">
+							<!-- <center> -->
+							<!-- *** boton3 *** -->
+							<!-- <a href="CreditoResultado.html">
 											<div class="form-group">
 												<div class="col-sm-10">
 													<button id="btnCalcularDetallado" type="button"
@@ -201,20 +205,27 @@
 												</div>
 											</div>
 										</a> -->
-									<!-- </center> -->
-								<!-- </DIV> -->
+							<!-- </center> -->
+							<!-- </DIV> -->
 
 							<!-- </div> -->
-							
+
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<center>
 										<div id="tabla"></div>
 									</center>
 								</div>
 							</div>
 
-
+							<div class="row">
+								<div class="col-md-12" style="width: 30%" id="divChartCap">
+									<canvas id="chartCapital" height="150" width="300"></canvas>
+								</div>
+								<div class="col-md-12" style="width: 30%" id="divChartIxA">
+									<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>
+								</div>
+							</div>
 
 						</form>
 						<!-- *** final forms *** -->
@@ -247,6 +258,7 @@
 	<script src="Recursos/Scripts/js/scrollreveal.min.js"></script>
 	<!-- Global Init -->
 	<script src="Recursos/Scripts/js/custom.js"></script>
+	<script src="Recursos/Scripts/GraficosChart/Chart.js"></script>
 
 </body>
 
