@@ -467,6 +467,64 @@ Welcome
   position: relative;
 }
 
+/* 
+---------------------------------------------
+Welcome CF
+--------------------------------------------- 
+*/
+
+.welcome-areaCF {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../Imagenes/CulturaFinanciera.png);
+  opacity: 0.5;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; 
+  height: 60vh;
+}
+
+.bodyCF {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f2f2;
+  height: 68vh;
+}
+
+.welcome-areaCF .header-textCF {
+  position: absolute;
+  top: 40%;
+  transform: translateY(25%);
+  text-align: center;
+  width: 120%;
+}
+
+.welcome-areaCF .header-textCF h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 54px;
+  letter-spacing: 1.4px;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.welcome-areaCF .header-textCF p {
+  font-weight: 600;
+  font-size: 17.4px;
+  color: #000000;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+
 
 /* 
 ---------------------------------------------
