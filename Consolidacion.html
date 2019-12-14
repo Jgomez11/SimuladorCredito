@@ -12,10 +12,10 @@
 	<link rel="stylesheet" type="text/css" href="Recursos/Estilos/font-awesome.css">
 	<link rel="stylesheet" href="Recursos/Estilos/style.css">
 
+	<script src="Recursos/Scripts/AgregarEliminarFilas.js"></script>
 
 	<style>
 		#content{
-			position: absolute;
 			min-height: 50%;
 			width: 80%;
 			top: 20%;
@@ -64,60 +64,87 @@
 	<div class="container" style="padding-top: 10em;">
 
 		<div class="col-lg-12">
-
 			<form>
-				<div class="row">
-					<!-- *** Inicio forms *** -->
-					<div class="col-md-6" style="margin-left: 2em;">
-						<div class="form-group row">
-							<label for="vp" class="col-sm-6 col-form-label">Salario Con Deducciones:</label>
-							<div class="col-sm-6">
-								<input type="text" class="form-control" id="vp" placeholder="Ejemplo: 8500.00" autofocus>
-							</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="form-group row">
+						<label for="sd" class="col-sm-3 col-form-label" style="text-align: right;">Salario Con Deducciones:</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="sd" placeholder="Ejemplo: 8500.00" autofocus>
+						</div>
+						<label class="col-sm-3 col-form-label disabled" style="text-align: right;">Monto Adeudado:</label>
+							<div class="col-sm-3">
+								<input type="text" class="form-control" id="montoA" placeholder="Resultado"
+								disabled>
 						</div>
 					</div>
+				</div>
+			</div>
+			<!--FIN DE FILA-->
+			<br>
 
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="form-group row">
+						<label for="inst" class="col-sm-3 col-form-label" style="text-align: right;">Institución:</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="inst">
+						</div>
 
-					<div class="col-md-1" >
-
-						<!-- *** boton3 *** -->
-						<a href="ConsolidacionResultado.html"> <div class="form-group">
-							<div class="col-sm-5">
-								<button id="btnCalcularDetallado" type="button" class="btn btn-success" >Calcular</button>
-							</div>
-						</div> </a>
-
+						<label for="monto" class="col-sm-3 col-form-label" style="text-align: right;">Monto:</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" id="monto">
+						</div>
 					</div>
 				</div>
-				<!--FIN DE FILA-->
-				<br>
-			</form>
-			<!-- *** final forms *** -->
+			</div>
+			<br>
+
 			<div class="row">
-				<center>	
-					<div id="content" style="padding-top: 5em; margin-left: 4em;" >
+				<div class="col-md-12">
+					<center>
 						<table id="tabla" class="table" style=>
 							<thead class="thead-dark" style="color: white; background-color:#343a40;">
 								<tr>
 									<td>Nº</td>
-									<td>Valor Cuotas</td>
-									<td>Cuotas Pendientes</td>
-									<td>Mora</td>
-									<td>Monto Total</td>
+									<td>Institución</td>
+									<td>Monto</td>
 								</tr>
 							</thead>
 						</table>
-						<button id="bt_add" class="btn btn-outline-success">Agregar</button> 
-						<button id="bt_del" class="btn btn-outline-success" style=" margin-left:4px;">Eliminar</button>
+						<button id="bt_add" type="button" class="btn btn-outline-success">Agregar</button>
 						<button id="bt_delall" class="btn btn-outline-success" style=" margin-left:4px;">Eliminar todo</button>
+					</center>
+				</div>
+			</div><br>
 
-					</div>
-				</center>
-
-
-
+			<div class="row">
+				<div class="col-md-12">
+					<center>
+					<!-- *** botonCalcular *** -->
+						<div class="form-group">
+							<div class="col-sm-10">
+								<button type="button" id="btnCal" class="btn btn-success">Calcular</button>
+							</div>
+						</div>
+					</center>
+				</DIV>
 			</div>
 
+			<div class="row">
+				<div class="col-md-6">
+					<center>
+						<div id="tablaC1"></div>
+					</center>
+				</div>
+				<div class="col-md-6">
+					<center>
+						<div id="tablaC2"></div>
+					</center>
+				</div>
+			</div>
+
+			</form>
 		</div>
 	</div>
 	
@@ -146,8 +173,6 @@
 
 
 </body>
-
-<script src="Recursos/Scripts/AgregarEliminarFilas.js"></script>
 
 <!-- Bootstrap -->
 <script src="Recursos/Scripts/js/popper.js"></script>
