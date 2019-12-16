@@ -5,33 +5,39 @@ $(document).ready(function () {
 function calcular() {
     var tipo = getTipoInteres();
 
-    switch (tipo) {
-        case "frances":
-            francesa();
-            break;
+    for (let index = 0; index < tipo.length; index++) {
+        const element = tipo[index];
+        
+        switch (element) {
+            case "frances":
+                francesa(index);
+                break;
+    
+            case "banpais":
+                banpais(index, "banpais");
+                break;
+            case "ficohsa":
+                banpais(index, "ficohsa");
+                break;
+            case "aleman":
+                aleman(index);
+                break;
+    
+            case "americano":
+                americano(index);
+                break;
+    
+            default:
+                break;
+        }
+    
 
-        case "banpais":
-            $("#tae").val("23");
-            banpais();
-            break;
-        case "ficohsa":
-            $("#tae").val("27");
-            banpais();
-            break;
-        case "aleman":
-            aleman();
-            break;
-
-        case "americano":
-            americano();
-            break;
-
-        default:
-            break;
+        
     }
+
 }
 
-function francesa() {
+function francesa(index) {
     var data = getData();
     var interesTAE = data.tae / 100;
 
@@ -41,19 +47,20 @@ function francesa() {
     var denominador = (Math.pow((1 + (interesCuota / data.periodo)), data.numeroCuotas) - 1);
     var cuota = (data.valorPrestamo * numerador / denominador);
 
-    $("#cuota").val(cuota.toFixed(2));
-    $("#total").val((cuota * data.numeroCuotas).toFixed(2));
+    (index == 0) ? $("#cuota").val(cuota.toFixed(2)) : $("#cuota2").val(cuota.toFixed(2));
+    (index == 0) ? $("#total").val((cuota * data.numeroCuotas).toFixed(2)): $("#total2").val((cuota * data.numeroCuotas).toFixed(2));
 
     renderizarTablaFrancesa({
         cuota: cuota,
         valorPrestamo: data.valorPrestamo,
         numeroCuotas: data.numeroCuotas,
         interes: interesCuota,
-        periodo: data.periodo
+        periodo: data.periodo,
+        index: index
     });
 }
 
-function aleman() {
+function aleman(index) {
     var data = getData();
     var interesTAE = data.tae / 100;
 
@@ -61,8 +68,7 @@ function aleman() {
     var amortizacion = data.valorPrestamo / data.numeroCuotas;
     var cuota = amortizacion + (data.valorPrestamo) * interesCuota / data.periodo;
 
-    $("#cuota").val(cuota.toFixed(2));
-
+    (index == 0) ? $("#cuota").val(cuota.toFixed(2)) : $("#cuota2").val(cuota.toFixed(2));
 
     renderizarTablaAlemana({
         cuota: cuota,
@@ -70,55 +76,59 @@ function aleman() {
         valorPrestamo: data.valorPrestamo,
         numeroCuotas: data.numeroCuotas,
         interes: interesCuota,
-        periodo: data.periodo
+        periodo: data.periodo,
+        index: index
     });
 }
 
-function americano() {
+function americano(index) {
     var data = getData();
     var interesTAE = data.tae / 100;
 
     var interesCuota = data.periodo * (Math.pow((interesTAE + 1), (1 / data.periodo)) - 1);
     var cuota = data.valorPrestamo * interesCuota;
 
-    $("#cuota").val(cuota.toFixed(2));
-
+    (index == 0) ? $("#cuota").val(cuota.toFixed(2)) : $("#cuota2").val(cuota.toFixed(2));
 
     renderizarTablaAmericana({
         cuota: cuota,
         valorPrestamo: data.valorPrestamo,
         numeroCuotas: data.numeroCuotas,
         interes: interesCuota,
-        periodo: data.periodo
+        periodo: data.periodo,
+        index: index
     });
 }
 
-function banpais() {
+function banpais(index, banco) {
     var data = getData();
-    var interesTAE = data.tae / 100;
 
+    var interesTAE = 0;
+
+    banco === "banpais" ? interesTAE = 23 / 100: interesTAE = 27 / 100;
     var interesCuota = interesTAE / data.periodo;
 
     var numerador = interesCuota;
     var denominador = 1 - Math.pow((1 / (1 + interesCuota)), data.numeroCuotas);
     var cuota = (data.valorPrestamo * numerador / denominador);
 
-    $("#cuota").val(cuota.toFixed(2));
-    $("#total").val((cuota * data.numeroCuotas).toFixed(2));
+    (index == 0) ? $("#cuota").val(cuota.toFixed(2)) : $("#cuota2").val(cuota.toFixed(2));
+    (index == 0) ? $("#total").val((cuota * data.numeroCuotas).toFixed(2)): $("#total2").val((cuota * data.numeroCuotas).toFixed(2));
 
     renderizarTablaBanpais({
         cuota: cuota,
         valorPrestamo: data.valorPrestamo,
         numeroCuotas: data.numeroCuotas,
-        interes: interesCuota
+        interes: interesCuota,
+        index: index
     });
 }
 
 function renderizarTablaAlemana(object) {
-    $('#tabla').html("");
+    (object.index == 0) ? $('#tabla').html('') : $('#tabla2').html('');
     
-    $('#divChartCap').html("");
-    $('#divChartIxA').html("");
+    (object.index == 0) ? $('#divChartCap').html("") : $('#divChartCap2').html("");
+    (object.index == 0) ? $('#divChartIxA').html("") : $('#divChartIxA2').html("");
 
     var labels = [0];
     var data = {
@@ -150,19 +160,23 @@ function renderizarTablaAlemana(object) {
 
     html += '<tr><th scope="row">Totales:</th><td>' + (interesAcumulado + object.amortizacion * object.numeroCuotas).toFixed(2) + '</td><td>' + interesAcumulado.toFixed(2) + '</td><td>' + (object.amortizacion * object.numeroCuotas).toFixed(2) + '</td><td></td></tr></tbody></table>';
     
-    $("#total").val((interesAcumulado + object.amortizacion * object.numeroCuotas).toFixed(2));
+    (object.index == 0) ? $("#total").val((interesAcumulado + object.amortizacion * object.numeroCuotas).toFixed(2)) : $("#total2").val((interesAcumulado + object.amortizacion * object.numeroCuotas).toFixed(2));
     
-    $('#tabla').html(html);
+    (object.index == 0) ? $('#tabla').html(html) : $('#tabla2').html(html);
 
-    $('#divChartCap').html('<canvas id="chartCapital" height="150" width="300"></canvas>');
-    $('#divChartIxA').html('<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>');
 
-    renderizarGrafico(labels, data);
+    (object.index == 0) ? $('#divChartCap').html('<canvas id="chartCapital" height="150" width="300"></canvas>') : $('#divChartCap2').html('<canvas id="chartCapital2" height="150" width="300"></canvas>');
+    (object.index == 0) ? $('#divChartIxA').html('<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>') : $('#divChartIxA2').html('<canvas id="chartInteresxAmortizacion2" height="150" width="300"></canvas>');
+
+    renderizarGrafico(labels, data, object.index);
 }
 
 function renderizarTablaAmericana(object) {
-    $('#tabla').html("");
+    (object.index == 0) ? $('#tabla').html('') : $('#tabla2').html('');
     
+    (object.index == 0) ? $('#divChartCap').html("") : $('#divChartCap2').html("");
+    (object.index == 0) ? $('#divChartIxA').html("") : $('#divChartIxA2').html("");
+
     var labels = [0];
     var data = {
         capital: [object.valorPrestamo],
@@ -193,17 +207,20 @@ function renderizarTablaAmericana(object) {
     data.cuota.push(object.cuota + object.valorPrestamo);
     html += '<tr><th scope="row">' + object.numeroCuotas + '</th><td>' + (object.cuota + object.valorPrestamo).toFixed(2) + '</td><td>' + object.cuota.toFixed(2) + '</td><td>' + object.valorPrestamo.toFixed(2) + '</td><td>0.00</td></tr>';
     html += '<tr><th scope="row">Totales:</th><td>' + (interesAcumulado + object.valorPrestamo).toFixed(2) + '</td><td>' + interesAcumulado.toFixed(2) + '</td><td>' + object.valorPrestamo.toFixed(2) + '</td><td></td></tr></tbody></table>';
-    $("#total").val((interesAcumulado + object.valorPrestamo).toFixed(2));
-    $('#tabla').html(html);
+    (object.index == 0) ? $("#total").val((interesAcumulado + object.valorPrestamo).toFixed(2)) : $("#total2").val((interesAcumulado + object.valorPrestamo).toFixed(2));
+    (object.index == 0) ? $('#tabla').html(html) : $('#tabla2').html(html);
 
-    renderizarGrafico(labels, data);
+    (object.index == 0) ? $('#divChartCap').html('<canvas id="chartCapital" height="150" width="300"></canvas>') : $('#divChartCap2').html('<canvas id="chartCapital2" height="150" width="300"></canvas>');
+    (object.index == 0) ? $('#divChartIxA').html('<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>') : $('#divChartIxA2').html('<canvas id="chartInteresxAmortizacion2" height="150" width="300"></canvas>');
+
+    renderizarGrafico(labels, data, object.index);
 }
 
 function renderizarTablaFrancesa(object) {
-    $('#tabla').html("");
+    (object.index == 0) ? $('#tabla').html('') : $('#tabla2').html('');
 
-    $('#divChartCap').html("");
-    $('#divChartIxA').html("");
+    (object.index == 0) ? $('#divChartCap').html("") : $('#divChartCap2').html("");
+    (object.index == 0) ? $('#divChartIxA').html("") : $('#divChartIxA2').html("");
 
     var html = '<table class="table"><thead class="thead-dark"><tr><th scope="col">Períodos</th><th scope="col">Cuotas</th><th scope="col">Interéses</th><th scope="col">Amortización</th><th scope="col">Capital Pendiente</th></tr></thead><tbody>';
     html += '<tr><th scope="row">0</th><td></td><td></td><td></td><td>' + object.valorPrestamo.toFixed(2) + '</td></tr>';
@@ -235,16 +252,19 @@ function renderizarTablaFrancesa(object) {
 
     html += '<tr><th scope="row">Totales:</th><td>' + (object.cuota * object.numeroCuotas).toFixed(2) + '</td><td>' + interesAcumulado.toFixed(2) + '</td><td>' + (object.cuota * object.numeroCuotas - interesAcumulado).toFixed(2) + '</td><td></td></tr></tbody></table>';
 
-    $('#tabla').html(html);
+    (object.index == 0) ? $('#tabla').html(html) : $('#tabla2').html(html);
 
-    $('#divChartCap').html('<canvas id="chartCapital" height="150" width="300"></canvas>');
-    $('#divChartIxA').html('<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>');
+    (object.index == 0) ? $('#divChartCap').html('<canvas id="chartCapital" height="150" width="300"></canvas>') : $('#divChartCap2').html('<canvas id="chartCapital2" height="150" width="300"></canvas>');
+    (object.index == 0) ? $('#divChartIxA').html('<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>') : $('#divChartIxA2').html('<canvas id="chartInteresxAmortizacion2" height="150" width="300"></canvas>');
 
-    renderizarGrafico(labels, data);
+    renderizarGrafico(labels, data, object.index);
 }
 
 function renderizarTablaBanpais(object) {
-    $('#tabla').html("");
+    (object.index == 0) ? $('#tabla').html('') : $('#tabla2').html('');
+
+    (object.index == 0) ? $('#divChartCap').html("") : $('#divChartCap2').html("");
+    (object.index == 0) ? $('#divChartIxA').html("") : $('#divChartIxA2').html("");
 
     var labels = [0];
     var data = {
@@ -275,12 +295,12 @@ function renderizarTablaBanpais(object) {
 
     html += '<tr><th scope="row">Totales:</th><td>' + (object.cuota * object.numeroCuotas).toFixed(2) + '</td><td>' + interesAcumulado.toFixed(2) + '</td><td>' + (object.cuota * object.numeroCuotas - interesAcumulado).toFixed(2) + '</td><td></td></tr></tbody></table>';
 
-    $('#tabla').html(html);
+    (object.index == 0) ? $('#tabla').html(html) : $('#tabla2').html(html);
 
-    $('#divChartCap').html('<canvas id="chartCapital" height="150" width="300"></canvas>');
-    $('#divChartIxA').html('<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>');
+    (object.index == 0) ? $('#divChartCap').html('<canvas id="chartCapital" height="150" width="300"></canvas>') : $('#divChartCap2').html('<canvas id="chartCapital2" height="150" width="300"></canvas>');
+    (object.index == 0) ? $('#divChartIxA').html('<canvas id="chartInteresxAmortizacion" height="150" width="300"></canvas>') : $('#divChartIxA2').html('<canvas id="chartInteresxAmortizacion2" height="150" width="300"></canvas>');
 
-    renderizarGrafico(labels, data);
+    renderizarGrafico(labels, data, object.index);
 }
 
 function getData() {
@@ -295,11 +315,15 @@ function getData() {
 }
 
 function getTipoInteres() {
-    return ($("#tipoCredito").val() !== "") ? $("#tipoCredito").val() : "frances";
+    var tipo = [];
+    tipo.push(($("#tipoCredito").val() !== "") ? $("#tipoCredito").val() : "frances");
+    tipo.push(($("#tipoCredito2").val() !== "") ? $("#tipoCredito2").val() : "frances");
+    
+    return tipo;
 }
 
-function renderizarGrafico(labels, data) {
-    var contenedorCapital = document.getElementById('chartCapital');
+function renderizarGrafico(labels, data, index) {
+    var contenedorCapital = (index == 0) ? document.getElementById('chartCapital') : document.getElementById('chartCapital2');
     var chartCapital = new Chart(contenedorCapital, {
         type: 'bar',
         data: {
@@ -315,14 +339,11 @@ function renderizarGrafico(labels, data) {
             title: {
                 display: true,
                 text: 'Grafico de Capital Restante'
-            },
-            layout: {
-                padding: 50
             }
         }
     });
 
-    var contenedorIxA = document.getElementById('chartInteresxAmortizacion');
+    var contenedorIxA = (index == 0) ? document.getElementById('chartInteresxAmortizacion') : document.getElementById('chartInteresxAmortizacion2');
     var chartInteresxAmortizacion = new Chart(contenedorIxA, {
         type: 'bar',
         data: {
@@ -352,9 +373,6 @@ function renderizarGrafico(labels, data) {
             title: {
                 display: true,
                 text: 'Grafico de Interes contra Amortizacion',
-            },
-            layout: {
-                padding: 50
             }
         }
     });
