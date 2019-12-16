@@ -4,6 +4,7 @@ $(document).ready(function () {
 
 function calcular() {
     var tipo = getTipoInteres();
+    var tasa = 0;
 
     for (let index = 0; index < tipo.length; index++) {
         const element = tipo[index];
@@ -15,9 +16,11 @@ function calcular() {
     
             case "banpais":
                 banpais(index, "banpais");
+                tasa = 1;
                 break;
             case "ficohsa":
                 banpais(index, "ficohsa");
+                tasa = 1;
                 break;
             case "aleman":
                 aleman(index);
@@ -30,9 +33,11 @@ function calcular() {
             default:
                 break;
         }
-    
-
         
+    }
+
+    if (tasa==1) { 
+        $("#tae").val(''); 
     }
 
 }
