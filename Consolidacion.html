@@ -100,7 +100,7 @@
 				</div>
 				<br>
 
-				<div class="row">
+				<div class="row" id="HTMLtoPDF1">
 					<div class="col-md-12">
 						<center>
 							<table id="tabla" class="table" style=>
@@ -112,6 +112,13 @@
 									</tr>
 								</thead>
 							</table>
+						</center>
+					</div>
+				</div><br>
+
+				<div class="row">
+					<div class="col-lg-12">
+						<center>
 							<button id="bt_add" type="button" class="btn btn-outline-success">Agregar</button>
 							<button id="bt_delall" class="btn btn-outline-success" style=" margin-left:4px;">Eliminar todo</button>
 						</center>
@@ -129,9 +136,9 @@
 							</div>
 						</center>
 					</DIV>
-				</div>
+				</div><br>
 
-				<div class="row">
+				<div class="row" id="HTMLtoPDF2">
 					<div class="col-md-6">
 						<center>
 							<div id="tablaC1"></div>
@@ -147,12 +154,20 @@
 			</form>
 		</div>
 	</div>
-	
-	
 
-
+	<!-- ***** Download Button ***** -->
+	<div class="row">
+		<div class="col-md-12">
+			<center>
+				<div class="form-group">
+					<div class="col-sm-10" id="downloadbutton">
+					
+					</div>
+				</div>
+			</center>
+		</div>
+	</div>
 	
-
 	<!-- ***** Footer Start ***** -->
 	<footer style="padding-top: 27em;">
 		<div class="container">
@@ -182,6 +197,9 @@
 <!-- Global Init -->
 <script src="Recursos/Scripts/js/custom.js"></script>
 <script src="Recursos/Scripts/GraficosChart/Chart.js"></script>
+<!-- Download PDF -->
+<script src="Recursos/Scripts/js/jspdf.js"></script>
+<script src="Recursos/Scripts/js/pdfFromHTML.js"></script>
 
 </html>
 

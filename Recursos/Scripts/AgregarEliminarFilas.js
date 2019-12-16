@@ -29,21 +29,23 @@ function agregar(){
 
 function calcular (){
     if($("#sd").val()>montoTotal){
-	    var interes1 = Math.floor((Math.random() * 16) + 14)/100;
-    	var interes2 = Math.floor((Math.random() * 16) + 14)/100;
+	    var interes1 = Math.floor((Math.random() * (17 - 14)) + 14)/100;
+    	var interes2 = Math.floor((Math.random() * (17 - 14)) + 14)/100;
+    	var arreycuotas = [24,36,48];
 	    var periodo = 12;
-	    var numeroCuotas = 24;
+	    var numeroCuotas1 = arreycuotas[Math.floor((Math.random() * (3 - 0)) + 0)];
+	    var numeroCuotas2 = arreycuotas[Math.floor((Math.random() * (3 - 0)) + 0)];
 
 	    //Se puede simplificar
 
 		var interesCuota1 = periodo * (Math.pow((interes1 + 1), (1 / periodo)) - 1);
-		var numerador1 = (interesCuota1 / periodo) * Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas);
-		var denominador1 = (Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas) - 1);
+		var numerador1 = (interesCuota1 / periodo) * Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas1);
+		var denominador1 = (Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas1) - 1);
 		var cuota1 = (montoTotal * numerador1 / denominador1);
 
 		var interesCuota2 = periodo * (Math.pow((interes2 + 1), (1 / periodo)) - 1);
-		var numerador2 = (interesCuota2 / periodo) * Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas);
-		var denominador2 = (Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas) - 1);
+		var numerador2 = (interesCuota2 / periodo) * Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas2);
+		var denominador2 = (Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas2) - 1);
 		var cuota2 = (montoTotal * numerador2 / denominador2);
 
 	    $("#montoA").val(montoTotal);
@@ -51,27 +53,34 @@ function calcular (){
 	    renderizarTablaFrancesa1({
 	        cuota: cuota1,
 	        valorPrestamo: montoTotal,
-	        numeroCuotas: numeroCuotas,
+	        numeroCuotas: numeroCuotas1,
 	        interes: interesCuota1,
+	        intbx: interes1,
 	        periodo: periodo
 	    });
 
 	    renderizarTablaFrancesa2({
 	        cuota: cuota2,
 	        valorPrestamo: montoTotal,
-	        numeroCuotas: numeroCuotas,
+	        numeroCuotas: numeroCuotas2,
 	        interes: interesCuota2,
+	        intby: interes2,
 	        periodo: periodo
 	    });
 	}else {
 		alert("El monto del salario débe ser mayor al total de deudas, ya que deducción se hace por planilla.");
-		}
+		};
+
+	var html = '<button onclick="HTMLtoPDF2()" type="button" class="btn btn-success">Descargar PDF</button>';
+	$('#downloadbutton').html(html);
 }
 
 function renderizarTablaFrancesa1(object) {
     $('#tablaC1').html("");
 
-   	var html = '<h4>Banco X</h4><table class="table"><thead class="thead-dark"><tr><th scope="col">Períodos</th><th scope="col">Cuotas</th><th scope="col">Interéses</th><th scope="col">Amortización</th><th scope="col">Capital Pendiente</th></tr></thead><tbody>';
+   	var html = '<h4>Banco X, Ofrece:</h4><p>Interés: '+ (object.intbx*100).toFixed(2) +'%</p>';
+	html += '<p>Número de Cuotas: '+ object.numeroCuotas +'</p>';
+	html += '<table class="table"><thead class="thead-dark"><tr><th scope="col">Períodos</th><th scope="col">Cuotas</th><th scope="col">Interéses</th><th scope="col">Amortización</th><th scope="col">Capital Pendiente</th></tr></thead><tbody>';
 	html += '<tr><th scope="row">0</th><td></td><td></td><td></td><td>' + object.valorPrestamo + '</td></tr>';
 
 	var interesTemp = 0;
@@ -108,7 +117,9 @@ function renderizarTablaFrancesa1(object) {
 function renderizarTablaFrancesa2(object) {
     $('#tablaC2').html("");
 
-   	var html = '<h4>Banco Y</h4><table class="table"><thead class="thead-dark"><tr><th scope="col">Períodos</th><th scope="col">Cuotas</th><th scope="col">Interéses</th><th scope="col">Amortización</th><th scope="col">Capital Pendiente</th></tr></thead><tbody>';
+   	var html = '<h4>Banco Y, Ofrece:</h4><p>Interés: '+ (object.intby*100).toFixed(2) +'%</p>';
+	html += '<p>Número de Cuotas: '+ object.numeroCuotas +'</p>';
+	html += '<table class="table"><thead class="thead-dark"><tr><th scope="col">Períodos</th><th scope="col">Cuotas</th><th scope="col">Interéses</th><th scope="col">Amortización</th><th scope="col">Capital Pendiente</th></tr></thead><tbody>';
 	html += '<tr><th scope="row">0</th><td></td><td></td><td></td><td>' + object.valorPrestamo + '</td></tr>';
 
 	var interesTemp = 0;

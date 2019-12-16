@@ -29,6 +29,9 @@ function calcular() {
         default:
             break;
     }
+
+    var html = '<button id="btnDescargar" onclick="HTMLtoPDF1()" type="button" class="btn btn-success">Descargar PDF</button>';
+    $("#downloadbutton").html(html);
 }
 
 function francesa() {
