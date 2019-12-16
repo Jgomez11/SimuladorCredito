@@ -17,7 +17,7 @@ function HTMLtoPDF1(){
       left: 70,
       width: 530 //545
     };
-  pdf.fromHTML(
+    pdf.fromHTML(
     	source // HTML string or DOM elem ref.
     	, margins.left // x coord
     	, margins.top // y coord
@@ -28,16 +28,16 @@ function HTMLtoPDF1(){
     	function (dispose) {
     	  // dispose: object with X, Y of the last line add to the PDF
     	  //          this allow the insertion of new lines after html
-          pdf.text(70, 70, 'SIMULADOR DE CRÉDITO');
-          pdf.text(90, 90, vp);
-          pdf.text(90, 105, tae);
-          pdf.text(90, 120, nc);
-          pdf.text(90, 135, p);
-          pdf.text(90, 150, tc);
-          pdf.save('SimuladorCredito.pdf');
-        }
-    )		
-}
+        pdf.text(70, 70, 'SIMULADOR DE CRÉDITO');
+        pdf.text(90, 90, vp);
+        pdf.text(90, 105, tae);
+        pdf.text(90, 120, nc);
+        pdf.text(90, 135, p);
+        pdf.text(90, 150, tc);
+        pdf.save('SimuladorCredito.pdf');
+      }
+      )		
+  }
 
 //Consolidacion de deudas
 function HTMLtoPDF2(){
@@ -46,7 +46,7 @@ function HTMLtoPDF2(){
   var ma = 'Monto Adeudado: '+$("#montoA").val();
 
   pdf.text(70, 70, 'SIMULADOR DE CRÉDITO');
-  pdf.text(70, 90,'* Ver comparación en la siguiente página.');
+  pdf.text(70, 90,'* Ver comparación en la siguiente página.*');
   pdf.text(90, 110, sd);
   pdf.text(90, 125, ma);
   pdf.text(70, 145,'Detalle de Deudas:');
@@ -61,9 +61,9 @@ function HTMLtoPDF2(){
       top: 155, //50
       left: 70,
       width: 530 //545
-  };
+    };
 
-  pdf.fromHTML(
+    pdf.fromHTML(
       source1 // HTML string or DOM elem ref.
       , margins.left // x coord
       , margins.top // y coord
@@ -71,23 +71,23 @@ function HTMLtoPDF2(){
         'width': margins.width // max width of content on PDF
         , 'elementHandlers': specialElementHandlers
       }
-    );
+      );
 
-  pdf.addPage();
-  pdf.text(70,70,'COMPARACIÓN ENTRE BANCOS');
-  source2 = $('#HTMLtoPDF2')[0];
-  specialElementHandlers = {
-    '#bypassme': function(element, renderer){
-      return true
+    pdf.addPage();
+    pdf.text(70,70,'COMPARACIÓN ENTRE BANCOS');
+    source2 = $('#HTMLtoPDF2')[0];
+    specialElementHandlers = {
+      '#bypassme': function(element, renderer){
+        return true
+      }
     }
-  }
-  margins = {
+    margins = {
       top: 85, //50
       left: 70,
       width: 530 //545
-  };
+    };
 
-  pdf.fromHTML(
+    pdf.fromHTML(
       source2 // HTML string or DOM elem ref.
       , margins.left // x coord
       , margins.top // y coord
@@ -95,7 +95,7 @@ function HTMLtoPDF2(){
         'width': margins.width // max width of content on PDF
         , 'elementHandlers': specialElementHandlers
       }
-    );
+      );
 
-  pdf.save('SimuladorCredito.pdf');
-}
+    pdf.save('SimuladorCrédito.pdf');
+  }
