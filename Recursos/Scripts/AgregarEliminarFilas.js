@@ -28,25 +28,26 @@ function agregar(){
 }
 
 function calcular (){
-    if($("#sd").val()>montoTotal){
-	    var interes1 = Math.floor((Math.random() * (17 - 14)) + 14)/100;
-    	var interes2 = Math.floor((Math.random() * (17 - 14)) + 14)/100;
-    	var arreycuotas = [24,36,48];
-	    var periodo = 12;
-	    var numeroCuotas1 = arreycuotas[Math.floor((Math.random() * (3 - 0)) + 0)];
-	    var numeroCuotas2 = arreycuotas[Math.floor((Math.random() * (3 - 0)) + 0)];
+	var interes1 = Math.floor((Math.random() * (17 - 14)) + 14)/100;
+   	var interes2 = Math.floor((Math.random() * (17 - 14)) + 14)/100;
+    var arreycuotas = [24,36,48];
+	var periodo = 12;
+	var numeroCuotas1 = arreycuotas[Math.floor((Math.random() * (3 - 0)) + 0)];
+	var numeroCuotas2 = arreycuotas[Math.floor((Math.random() * (3 - 0)) + 0)];
 
-	    //Se puede simplificar
+	//Se puede simplificar
 
-		var interesCuota1 = periodo * (Math.pow((interes1 + 1), (1 / periodo)) - 1);
-		var numerador1 = (interesCuota1 / periodo) * Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas1);
-		var denominador1 = (Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas1) - 1);
-		var cuota1 = (montoTotal * numerador1 / denominador1);
+	var interesCuota1 = periodo * (Math.pow((interes1 + 1), (1 / periodo)) - 1);
+	var numerador1 = (interesCuota1 / periodo) * Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas1);
+	var denominador1 = (Math.pow((1 + (interesCuota1 / periodo)), numeroCuotas1) - 1);
+	var cuota1 = (montoTotal * numerador1 / denominador1);
 
-		var interesCuota2 = periodo * (Math.pow((interes2 + 1), (1 / periodo)) - 1);
-		var numerador2 = (interesCuota2 / periodo) * Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas2);
-		var denominador2 = (Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas2) - 1);
-		var cuota2 = (montoTotal * numerador2 / denominador2);
+	var interesCuota2 = periodo * (Math.pow((interes2 + 1), (1 / periodo)) - 1);
+	var numerador2 = (interesCuota2 / periodo) * Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas2);
+	var denominador2 = (Math.pow((1 + (interesCuota2 / periodo)), numeroCuotas2) - 1);
+	var cuota2 = (montoTotal * numerador2 / denominador2);
+
+	if($("#sd").val()>cuota1 && $("#sd").val()>cuota2){
 
 	    $("#montoA").val(montoTotal);
 
@@ -67,12 +68,12 @@ function calcular (){
 	        intby: interes2,
 	        periodo: periodo
 	    });
-	}else {
-		alert("El monto del salario débe ser mayor al total de deudas, ya que deducción se hace por planilla.");
-		};
 
-	var html = '<button onclick="HTMLtoPDF2()" type="button" class="btn btn-success">Descargar PDF</button>';
-	$('#downloadbutton').html(html);
+	    var html = '<button onclick="HTMLtoPDF2()" type="button" class="btn btn-success">Descargar PDF</button>';
+		$('#downloadbutton').html(html);
+	}else {
+		alert("El monto del salario débe ser mayor a la cuota a pagar, ya que deducción se hace por planilla.");
+		};
 }
 
 function renderizarTablaFrancesa1(object) {
