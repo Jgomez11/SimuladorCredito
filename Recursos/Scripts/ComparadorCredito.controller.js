@@ -6,32 +6,33 @@ function calcular() {
     var tipo = getTipoInteres();
     var tasa = 0;
 
+
     for (let index = 0; index < tipo.length; index++) {
         const element = tipo[index];
         
         switch (element) {
             case "frances":
-                francesa(index);
-                break;
-    
+            francesa(index);
+            break;
+
             case "banpais":
-                banpais(index, "banpais");
-                tasa = 1;
-                break;
+            banpais(index, "banpais");
+            tasa = 1;
+            break;
             case "ficohsa":
-                banpais(index, "ficohsa");
-                tasa = 1;
-                break;
+            banpais(index, "ficohsa");
+            tasa = 1;
+            break;
             case "aleman":
-                aleman(index);
-                break;
-    
+            aleman(index);
+            break;
+
             case "americano":
-                americano(index);
-                break;
-    
+            americano(index);
+            break;
+
             default:
-                break;
+            break;
         }
         
     }
@@ -39,6 +40,9 @@ function calcular() {
     if (tasa==1) { 
         $("#tae").val(''); 
     }
+
+    var html = '<button onclick="HTMLtoPDF3()" type="button" class="btn btn-success">Descargar PDF</button>';
+    $('#downloadbutton').html(html);
 
 }
 
@@ -354,24 +358,24 @@ function renderizarGrafico(labels, data, index) {
         data: {
             labels: labels,
             datasets: [
-                {
-                    label: 'Cuota',
-                    data: data.cuota,
-                    backgroundColor: 'rgba(255, 206, 86, 0.6)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Interes',
-                    data: data.interes,
-                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'Amortizacion',
-                    data: data.amortizacion,
-                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                    borderWidth: 1
-                }]
+            {
+                label: 'Cuota',
+                data: data.cuota,
+                backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                borderWidth: 1
+            },
+            {
+                label: 'Interes',
+                data: data.interes,
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                borderWidth: 1
+            },
+            {
+                label: 'Amortizacion',
+                data: data.amortizacion,
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                borderWidth: 1
+            }]
         },
 
         options: {
